@@ -1,0 +1,182 @@
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/darkly/bootstrap.min.css" rel="stylesheet">
+  <title>Quadruped Control</title>
+</head>
+<body>
+  <style>
+    td {text-align: center;}
+    table { margin-top: 30px}
+    .mirrored { transform: scale(-1, 1) }
+
+  </style>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <table class="table table-condensed">
+          <tbody>
+          <tr>
+            <td><div class="btn btn-default" data-action="turnright" data-button="shoulder_top_left"><div class="glyphicon glyphicon glyphicon-share-alt"></div></div></td>
+            <td></td>
+            <td></td>
+
+            <td></td>
+            <td></td>
+            <td></td>
+
+            <td></td>
+            <td></td>
+            <td><div class="btn btn-default" data-action="turnleft" data-button="shoulder_top_right"><div class="glyphicon glyphicon glyphicon-share-alt mirrored"></div></div></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><div class="btn btn-primary" data-action="forward" data-button="d_pad_up"><div class="glyphicon glyphicon-arrow-up"></div></div></td>
+            <td></td>
+
+            <td></td>
+            <td>Controller</td>
+            <td></td>
+
+            <td></td>
+            <td><div class="btn btn-default" data-action="zero" data-button="button_4">▲ - ZERO</div></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td><div class="btn btn-primary" data-action="moveleft" data-button="d_pad_left"><div class="glyphicon glyphicon-arrow-left"></div></div></td>
+            <td></td>
+            <td><div class="btn btn-primary" data-action="moveright" data-button="d_pad_right"><div class="glyphicon glyphicon-arrow-right"></div></div></td>
+
+            <td></td>
+            <td id="controller-status">DISCONNECTED</td>
+            <td></td>
+
+            <td><div class="btn btn-default" data-action="lie" data-button="button_3">□ - LIE</div></td>
+            <td></td>
+            <td><div class="btn btn-default" data-action="sayhi" data-button="button_2">◯ - SAYHI</div></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><div class="btn btn-primary" data-action="backwards" data-button="d_pad_down"><div class="glyphicon glyphicon-arrow-down"></div></div></td>
+            <td></td>
+
+            <td></td>
+            <td></td>
+            <td></td>
+
+            <td></td>
+            <td><div class="btn btn-default" data-action="standby" data-button="button_1">X - STANDBY</div></td>
+            <td></td>
+          </tr>
+          <tr><td colspan="9"></td></tr>
+          <tr><td colspan="9"></td></tr>
+          <tr><td colspan="9"></td></tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+
+            <td><div class="btn btn-default" data-action="dance1">DANCE1</div></td>
+            <td><div class="btn btn-default" data-action="dance2">DANCE2</div></td>
+            <td><div class="btn btn-default" data-action="dance3">DANCE3</div></td>
+
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+
+            <td><div class="btn btn-default" data-action="sleep">SLEEP</div></td>
+            <td><div class="btn btn-default" data-action="fighting">FIGHTING</div></td>
+            <td><div class="btn btn-default" data-action="pushup">PUSHUP</div></td>
+
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script type="application/javascript">
+    !function(){"use strict";var n,t,s=void 0!==window.navigator.getGamepads;function o(t,n){var a=[];return Object.keys(n).forEach(function(e){n[e]===t?a.push(e):Array.isArray(n[e])&&-1!==n[e].indexOf(t)&&a.push(e)}),a}function e(){this._events={gamepad:[],axes:[],keyboard:{}},this._handlers={gamepad:{connect:null,disconnect:null}},this._keyMapping={gamepad:{button_1:0,button_2:1,button_3:2,button_4:3,shoulder_top_left:4,shoulder_top_right:5,shoulder_bottom_left:6,shoulder_bottom_right:7,select:8,start:9,stick_button_left:10,stick_button_right:11,d_pad_up:12,d_pad_down:13,d_pad_left:14,d_pad_right:15,vendor:16},axes:{stick_axis_left:[0,2],stick_axis_right:[2,4]},keyboard:{button_1:32,start:27,d_pad_up:[38,87],d_pad_down:[40,83],d_pad_left:[37,65],d_pad_right:[39,68]}},this._threshold=.3,this._listeners=[],this._handleKeyboardEventListener=this._handleKeyboardEventListener.bind(this),this.resume()}"undefined"!==String(typeof window)&&["webkit","moz"].forEach(function(e){n=n||window.requestAnimationFrame||window[e+"RequestAnimationFrame"]||null,t=t||window.cancelAnimationFrame||window[e+"CancelAnimationFrame"]||null}),e.prototype._handleGamepadConnected=function(e){this._handlers.gamepad.connect&&this._handlers.gamepad.connect({index:e})},e.prototype._handleGamepadDisconnected=function(e){this._handlers.gamepad.disconnect&&this._handlers.gamepad.disconnect({index:e})},e.prototype._handleGamepadEventListener=function(a){var s=this;a&&a.connected&&a.buttons.forEach(function(t,e){var n=o(e,s._keyMapping.gamepad);n&&n.forEach(function(e){t.pressed?(s._events.gamepad[a.index][e]||(s._events.gamepad[a.index][e]={pressed:!0,hold:!1,released:!1,player:a.index}),s._events.gamepad[a.index][e].value=t.value):!t.pressed&&s._events.gamepad[a.index][e]&&(s._events.gamepad[a.index][e].released=!0,s._events.gamepad[a.index][e].hold=!1)})})},e.prototype._handleGamepadAxisEventListener=function(n){var a=this;n&&n.connected&&Object.keys(a._keyMapping.axes).forEach(function(e){var t=Array.prototype.slice.apply(n.axes,a._keyMapping.axes[e]);Math.abs(t[0])>a._threshold||Math.abs(t[1])>a._threshold?a._events.axes[n.index][e]={pressed:!a._events.axes[n.index][e],hold:!!a._events.axes[n.index][e],released:!1,value:t}:a._events.axes[n.index][e]&&(a._events.axes[n.index][e]={pressed:!1,hold:!1,released:!0,value:t})})},e.prototype._handleKeyboardEventListener=function(t){var n=this,e=o(t.keyCode,n._keyMapping.keyboard);e&&e.forEach(function(e){"keydown"!==t.type||n._events.keyboard[e]?"keyup"===t.type&&n._events.keyboard[e]&&(n._events.keyboard[e].released=!0,n._events.keyboard[e].hold=!1):n._events.keyboard[e]={pressed:!0,hold:!1,released:!1}})},e.prototype._handleEvent=function(e,t,n){t[e].pressed?(this.trigger("press",e,t[e].value,n),t[e].pressed=!1,t[e].hold=!0):t[e].hold?this.trigger("hold",e,t[e].value,n):t[e].released&&(this.trigger("release",e,t[e].value,n),delete t[e])},e.prototype._loop=function(){var e,a=this,t=!!s&&window.navigator.getGamepads();if(t){for(e=0;e<4;e+=1)t[e]?(a._events.gamepad[e]||(a._handleGamepadConnected(e),a._events.gamepad[e]={},a._events.axes[e]={}),a._handleGamepadEventListener(t[e]),a._handleGamepadAxisEventListener(t[e])):a._events.gamepad[e]&&(a._handleGamepadDisconnected(e),a._events.gamepad[e]=null,a._events.axes[e]=null);a._events.gamepad.forEach(function(t,n){t&&Object.keys(t).forEach(function(e){a._handleEvent(e,t,n)})}),a._events.axes.forEach(function(t,n){t&&Object.keys(t).forEach(function(e){a._handleEvent(e,t,n)})})}Object.keys(a._events.keyboard).forEach(function(e){a._handleEvent(e,a._events.keyboard,"keyboard")}),a._requestAnimation&&(a._requestAnimation=n(a._loop.bind(a)))},e.prototype.on=function(t,n,a,s){var o=this;-1!==Object.keys(this._handlers.gamepad).indexOf(t)&&"function"==typeof n?(this._handlers.gamepad[t]=n,this._events.gamepad=[]):("string"==typeof t&&t.match(/\s+/)&&(t=t.split(/\s+/g)),"string"==typeof n&&n.match(/\s+/)&&(n=n.split(/\s+/g)),Array.isArray(t)?t.forEach(function(e){o.on(e,n,a,s)}):Array.isArray(n)?n.forEach(function(e){o.on(t,e,a,s)}):this._listeners.push({type:t,button:n,callback:a,options:s}))},e.prototype.off=function(t,n){var a=this;"string"==typeof t&&t.match(/\s+/)&&(t=t.split(/\s+/g)),"string"==typeof n&&n.match(/\s+/)&&(n=n.split(/\s+/g)),Array.isArray(t)?t.forEach(function(e){a.off(e,n)}):Array.isArray(n)?n.forEach(function(e){a.off(t,e)}):this._listeners=this._listeners.filter(function(e){return e.type!==t&&e.button!==n})},e.prototype.setCustomMapping=function(e,t){if(void 0===this._keyMapping[e])throw new Error('The device "'+e+'" is not supported through gamepad.js');this._keyMapping[e]=t},e.prototype.setGlobalThreshold=function(e){this._threshold=parseFloat(e)},e.prototype.trigger=function(t,n,a,s){this._listeners&&this._listeners.forEach(function(e){e.type===t&&e.button===n&&e.callback({type:e.type,button:e.button,value:a,player:s,event:e,timestamp:Date.now()})})},e.prototype.pause=function(){t(this._requestAnimation),this._requestAnimation=null,document.removeEventListener("keydown",this._handleKeyboardEventListener),document.removeEventListener("keyup",this._handleKeyboardEventListener)},e.prototype.resume=function(){this._requestAnimation=n(this._loop.bind(this)),document.addEventListener("keydown",this._handleKeyboardEventListener),document.addEventListener("keyup",this._handleKeyboardEventListener)},e.prototype.destroy=function(){this.pause(),delete this._listeners},"function"==typeof define&&void 0!==define.amd?define([],function(){return e}):"object"==typeof module&&void 0!==module.exports?module.exports=e:window.Gamepad=e}();
+  </script>
+  <script type="application/javascript">
+    window.actionMap = {
+        zero: 0,
+        standby: 1,
+        forward: 2,
+        backwards: 3,
+        moveleft: 4,
+        moveright: 5,
+        turnleft: 6,
+        turnright: 7,
+        lie: 8,
+        sayhi: 9,
+        fighting: 10,
+        pushup: 11,
+        sleep: 12,
+        dance1: 13,
+        dance2: 14,
+        dance3: 15
+    };
+  </script>
+  <script type="application/javascript">
+      const gamepad = new Gamepad(); // https://github.com/neogeek/gamepad.js
+      var globalLock = false;
+      var controllerStatusTag = document.getElementById('controller-status');
+
+      gamepad.on('connect', e => {
+          controllerStatusTag.innerText = 'CONNECTED';
+      });
+
+      gamepad.on('disconnect', e => {
+          controllerStatusTag.innerText = 'DISCONNECTED';
+      });
+
+      document.querySelectorAll('.btn').forEach(function(btn){
+          btn.onclick = function(){
+              if(globalLock){
+                  return
+              }
+              globalLock = true;
+              var request = new XMLHttpRequest();
+              var requestFinished = false;
+              var timeoutOverdue = false;
+              request.onreadystatechange = function() {
+                  if(timeoutOverdue){
+                      btn.classList.remove('disabled');
+                      globalLock = false;
+                  }else{
+                      requestFinished = true;
+                  }
+              };
+              setTimeout(function(){
+                  if(requestFinished){
+                      btn.classList.remove('disabled');
+                      globalLock = false;
+                  }else{
+                      timeoutOverdue = true;
+                  }
+              }, 200);
+              btn.classList.add('disabled');
+              request.open("GET", "/api/move?action=" + window.actionMap[btn.dataset.action], true);
+              request.send();
+          };
+          if(btn.dataset.button){
+              gamepad.on('press', btn.dataset.button, () => {
+                  btn.onclick()
+              });
+          }
+      });
+  </script>
+
+</body>
+</html>

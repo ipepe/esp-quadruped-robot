@@ -1,77 +1,41 @@
-# esp-quadruped-robot
-## Q1 mini
+# ESP Quadruped Robot
+This is open soruce quadruped robot with 3D Printable files and firmware for ESP8266 (In my case Wemos D1 Mini).
 
-Q1 mini is an open source quadruped robot for everyone!
+It is based on Jason's Workshop Q1 Mini and Q1 Lite projects.
 
-You can print out the required parts by 3D printer.
+For firmware components I used:
+ * https://github.com/me-no-dev/ESPAsyncWebServer
+ * https://github.com/tzapu/WiFiManager
+ * https://github.com/esp8266/Arduino/blob/master/libraries/ArduinoOTA/examples/BasicOTA/BasicOTA.ino
 
-​
-
-● Simple design, easy to print and assemble.
-
-● 8 DOF using SG90 servo.
-
-● All-in-one controller board - LinkIt 7697 with Robot Shield and built-in battery.
-
-● Remote control the robot through mobile apps.
-
-● Dimension is L150mm X W160mm X H80mm (Standby Post)
+## Control Interface
+Its based on Bootstrap table with gamepad controls. Should work in offline mode.
+![Control Interface Screenshot](docs/pics/index.html.png)
 
 
-Instruction and downloads
+## Bill of Materials
 
-Download instruction and software from:
+### Electronics
+* 1x Wemos D1 Mini or alternative
+* 8x Servo MG92S or alternative
 
-http://hub.q1robot.com
+### 3D Printed
+* 1x stl_files/body.stl
+* 4x stl_files/foot.stl
+* 2x stl_files/thigh.stl (with supports)
+* 2x stl_files/thigh_mirror.stl (with supports)
 
-Parts
-
-Core
-
-● Robot Shield V2 Servo Control Board for LinkIt 7697 x 1
-
-● LinkIt 7697 Development Board x 1
-
-​
-
-Servos
-
-● SG90 Servo (180 Degree) x 8
-
-● Servo Arm for SG90 x 8
-
-​
-
-3DP Parts
-
-● All 3DP Parts for Q1 mini (37 Pcs)
-
-​
-
-Screws
-
-● M1.7 x 8mm x 60
-
-Online store
-
-Parts and kit set sell on Q1 Robot online store
-
-​http://store.q1robot.com​
-
-License
+# License
 
 This project licensed under the
 
 Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)
-
-​
 
 License Deed
 
 ​https://creativecommons.org/licenses/by-nc-sa/4.0/​
 
 ​
-
 You are free to:
 
 Share - copy and redistribute the material in any medium or format
@@ -98,14 +62,4 @@ Credit:
 
 Q1 mini - Quadruped Robot (Designed by Jason Workshop)
 
-Jason Workshop
-
-Website: http://jasonworkshop.com​
-
-FB page: http://fb.com/jasonworkshop​
-
-Q1 Robot
-
-Website: http://q1robot.com​
-
-FB page: http://fb.com/Q1.jasonworkshop​
+Q1 lite - Quadruped Robot (Designed by Jason Workshop)
