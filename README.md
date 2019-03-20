@@ -1,7 +1,8 @@
 # ESP Quadruped Robot
 This is open soruce quadruped robot with 3D Printable files and firmware for ESP8266 (In my case Wemos D1 Mini).
 
-It is based on Jason's Workshop Q1 Mini and Q1 Lite projects.
+It is based on Jason's Workshop Q1 Mini and Q1 Lite projects:
+![ESP Quadruped Robot rendered](docs/pics/robot-rendered.png)
 
 For firmware components I used:
  * https://github.com/me-no-dev/ESPAsyncWebServer
