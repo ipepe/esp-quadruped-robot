@@ -18,7 +18,7 @@ Its based on Bootstrap table with gamepad controls. Should work in offline mode.
 
 ### Electronics
 * 1x Wemos D1 Mini or alternative
-* 8x Servo MG92S or alternative
+* 8x Servo MG90S or alternative
 
 ### 3D Printed
 * 1x stl_files/body.stl
