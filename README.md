@@ -25,6 +25,12 @@ Its based on Bootstrap table with gamepad controls. Should work in offline mode.
 * 2x stl_files/thigh.stl (with supports)
 * 2x stl_files/thigh_mirror.stl (with supports)
 
+# Changes made from Jason Workshop resources
+Simple but brief: I redesigned body and leg stl files. I rewrote firmware for ESP8266 leaving only code responsible for animatronics (moving servos).
+
+Complex but detailed:
+[Diff between original-jason-workshop branch and master](https://github.com/ipepe/esp-quadruped-robot/compare/original-jason-workshop...master)
+
 # License
 
 This project licensed under the
