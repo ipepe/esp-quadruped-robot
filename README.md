@@ -14,6 +14,14 @@ Its based on Bootstrap table with gamepad controls. Should work in offline mode.
 ![Control Interface Screenshot](docs/pics/index.html.png)
 
 
+## Instructions
+Original Jason's instruction:
+https://drive.google.com/drive/folders/1iiuYHSkZpUuZ23yAdjj1NX9eLKb6hHGm
+
+## Programming
+
+It is worth noting that You need to upload data folder into SPIFFS. Otherwise You might get internal server Error 500 while trying to access microcontroller's web server.
+
 ## Bill of Materials
 
 ### Electronics
